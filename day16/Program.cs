@@ -42,15 +42,15 @@
                 case "1":
                     Console.WriteLine("Enter the amount you wish to deposit: ");
                     int amount = Convert.ToInt32((Console.ReadLine()));
-                    acc.withdraw();
+                    acc.withdraw(amount);
                     break;
             }
         }
-        class BankAccount
+        class BankAccount //abstraction is the hiding of functionality, encapsulation is the hiding of data
         {
-            public string email;
+            protected string email;
             public string password;
-            public int balance;
+            protected int balance;
 
             public BankAccount(string email, string password, int balance)//also constructor, will run everytime input is BankAccount
             {
@@ -61,6 +61,15 @@
 
             public int deposit(int amount)//method
             {
+                if (amount >= 10000)
+                {
+                    Console.WriteLine("Account frozen for suspicious activity. Please contact your branch"); }
+                else
+                {
+                    balance += amount;
+                }
+                return balance;
+                }
                 Console.WriteLine($"Your current balance is {balance}, how much would you like to deposit?: ");
                 balance += amount;
 
@@ -103,6 +112,15 @@
                 Console.WriteLine("Withdrawal unsuccessful, balance cannot excede overdraft limit");
                 return balance;
             }
+
+        public string email()
+        {
+            return email;
+        }
+        public int getBalance()
+        {
+            return getBalance();
+        }
         }
     }
 
