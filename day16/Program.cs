@@ -11,7 +11,7 @@
                 StudentAccount ba1 = new StudentAccount("matthew.ettridge@iungo.solutions", "Password1", 10, -1000);// parameters for account
                 StudentAccount bal2 = new StudentAccount("ehouston1992@hotmail.com", "Tree", 5, -200);
                 Console.WriteLine(ba1.withdraw(1000));
-                Console.WriteLine(ba1.balance);
+                Console.WriteLine(ba1.getBalance);
                 validateUser(ba1);
                 userControls(bal2);
             }
@@ -23,7 +23,7 @@
                     string email = Console.ReadLine();
                     Console.WriteLine("enter a password");
                     string password = Console.ReadLine();
-                    if (email == acc.email && password == acc.password)
+                    if (email == acc.getEmail && password == acc.password)
                     {
                         Console.WriteLine("Login Sucessful");
                         break;//stops while loop once entered correct info
@@ -63,15 +63,15 @@
             {
                 if (amount >= 10000)
                 {
-                    Console.WriteLine("Account frozen for suspicious activity. Please contact your branch"); }
+                    Console.WriteLine("Account frozen for suspicious activity. Please contact your branch");
+                }
                 else
                 {
                     balance += amount;
                 }
                 return balance;
                 }
-                Console.WriteLine($"Your current balance is {balance}, how much would you like to deposit?: ");
-                balance += amount;
+             
 
                 return balance;
             }
@@ -113,9 +113,9 @@
                 return balance;
             }
 
-        public string email()
+        public string getEmail()
         {
-            return email;
+            return getEmail();
         }
         public int getBalance()
         {
